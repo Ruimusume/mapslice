@@ -24,9 +24,9 @@ npm install mapslice
 ## 安装的目录位置
 
 ```bash
-C:\Users\用户名\node_modules       //mapslice的支持包
-C:\Users\用户名\package.json       //mapslice版本号信息
-C:\Users\用户名\package-lock.json  //mapslice支持包下载的地址信息
+C:\Users\用户名\node_modules      //mapslice的支持包
+C:\Users\用户名\package.json      //mapslice版本号信息
+C:\Users\用户名\package-lock.json //mapslice支持包下载的地址信息
 ```
 
 ## 下载旧版本
