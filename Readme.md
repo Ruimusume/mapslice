@@ -14,7 +14,7 @@ mapslice会自动检测载入材料支持的图块大小，并创建所有可能
 
 ## 安装
 
-请先安装最新的 [node](http://nodejs.org/)后在运行命令
+请先安装最新的 [node](http://nodejs.org/) 后在运行命令
 
 cmd运行:
 
@@ -38,7 +38,7 @@ npm install mapslice@1.3.0
 
 ## 命令行（原文说明可以忽视）
 
-安装最新的 [node](http://nodejs.org/)后，您可以使用 mapslice 作为命令行工具，方法是使用以下命令进行安装：
+安装最新的 [node](http://nodejs.org/) 后，您可以使用 mapslice 作为命令行工具，方法是使用以下命令进行安装：
 
 ```bash
 npm install mapslice -g
@@ -61,10 +61,12 @@ $ mapslice
 ## 脚本使用
 
 请复制以下代码保存js格式放在node_modules文件夹旁边，然后还需要新建bat文件写入以下命令运行bat才能使用
+
 ```console
 node slice.js
 pause
 ```
+
 注意：以下备注说明和原作者说明有改动
 
 ```JavaScript
@@ -99,7 +101,7 @@ mapSlicer.start().catch(err => console.error(err))
 ```
 ## colors获取&参数设置
 
-安装[ImageMagick](http://www.imagemagick.org/script/binary-releases.php)后，在原图目录上运行以下命令，即可知道图片颜色数量
+安装 [ImageMagick](http://www.imagemagick.org/script/binary-releases.php) 后，在原图目录上运行以下命令，即可知道图片颜色数量
 
 ```console
 magick identify -format "%k" map.png
