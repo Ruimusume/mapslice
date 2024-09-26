@@ -1,0 +1,52 @@
+#!/usr/bin/env node
+var version = /^v(\d+)/.exec(process.version)[1]
+if (parseInt(version, 10) < 6) {
+  console.error('Too old Nodejs version (' + version + '), at least version 6 is required.')
+  process.exit(1)
+}
+
+var path = require('path')
+var libPath = path.join(__dirname, '..', 'lib')
+var isPowerOfTwo = require(path.join(libPath, 'util/isPowerOfTwo'))
+var powerOfTwoMessage = 'Tile-size has to be to the power of 2. e.g.: 128, 256, 512, ...'
+var options = require('yargs')
+  .default(require(path.join(libPath, 'defaultSettings')))
+  .usage('Slice a image to map tiles.\nUsage: $0 -f=[image]')
+  .describe('file', 'Image to be sliced.')
+  .demand('file')
+  .string('file')
+  .alias('file', 'f')
+  .alias('tileSize', 't')
+  .describe('tileSize', 'Size of the generated tiles. (' + powerOfTwoMessage + ')')
+  .check(function (options, value) {
+    if (!isPowerOfTwo(options.tileSize)) {
+      return powerOfTwoMessage
+    }
+    return true
+  })
+  .describe('background', 'Background color to be used for the generated image. Accepted Format: http://ow.ly/rsluD')
+  .string('background')
+  .alias('background', 'b')
+  .describe('tmp', 'Temporary directory to store high-resolution versions for faster processing.')
+  .string('tmp')
+  .describe('imageMagick', 'Use ImageMagick instead of GraphicsMagick.')
+  .boolean('imageMagick')
+  .alias('imageMagick', 'i')
+  .describe('parallelLimit', 'Maximum parallel image-processing operations.')
+  .alias('parallelLimit', 'p')
+  .describe('output', 'Pattern to be for generation of files. e.g.: tiles/{z}_{y}_{x}.png. Defaults to ./{input-file-name}/{z}/{y}/{x}.jpg')
+  .alias('output', 'o')
+  .describe('minWidth', 'Optionally fit minimal zoom level to passed-in width.')
+  .alias('minWidth', 'w')
+  .describe('minHeight', 'Optionally fit minimal zoom level to passed-in height.')
+  .alias('minHeight', 'h')
+  .describe('skipEmptyTiles', 'Ignore empty tiles.')
+  .boolean('skipEmptyTiles')
+  .describe('bitdepth', 'Specifies the number of bits of color to preserve in the image.')
+  .number('bitdepth')
+  .describe('dither', 'Applies Floyd/Steinberg error diffusion to the image. Use --no-dither to disable dithering.')
+  .boolean('dither')
+  .describe('colors', 'Sets the preferred number of colors for the image (color reduction).')
+  .number('colors')
+
+require(path.join(libPath, 'client'))(options.argv)
