@@ -4,7 +4,7 @@
 
 源项目地址：https://github.com/martinheidegger/mapslice
 
-以下为中文说明翻译
+以下为中文说明翻译，可直接使用的文件包请到这里下载：https://github.com/Ruimusume/mapslice/releases
 
 mapslice是一种将图像切割成各种缩放级别的切片以用于交互式地图的工具。
 
