@@ -19,7 +19,16 @@ via npm:
 ```bash
 $ npm install mapslice
 ```
+## 安装的目录位置
+
+```console
+C:\Users\用户名\node_modules       //mapslice的支持包
+C:\Users\用户名\package.json       //mapslice版本号信息
+C:\Users\用户名\package-lock.json  //mapslice支持包下载的地址信息
+```
+
 ## 下载旧版本
+
 请在@后面填入对应版本号，版本号查阅https://github.com/martinheidegger/mapslice/tags
 ```bash
 $ npm install mapslice@1.3.0
