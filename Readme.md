@@ -58,53 +58,55 @@ $ mapslice -f test.jpg
 $ mapslice
 ```
 
-
 ## 脚本使用
 
 请复制以下代码保存js格式放在node_modules文件夹旁边使用
 
+注意：以下备注说明和原作者说明有改动
+
 ```JavaScript
 const MapSlicer = require('mapslice')
 
-// The parameters passed here are equal to the command-line parameters
+// 此处传递的参数等于命令行参数
 const mapSlicer = new MapSlicer({
-  file: `myImage.jpg`,               // (required) Huge image to slice
-  output: `myImage/{z}/{y}/{x}.png`, // (default: derived from file path) Output file pattern
-  outputFolder: './output',          // (default: derived from file path) Output to be used for. Use either output or outputFolder, not both!
-  tileSize: 512,                     // (default: 256) Tile-size to be used
-  imageMagick: true,                 // (default: false) If (true) then use ImageMagick instead of GraphicsMagick
-  background: '#00000000',           // (default: '#FFFFFFFF') Background color to be used for the tiles. More: http://ow.ly/rsluD
-  tmp: './temp',                     // (default: '.tmp') Temporary directory to be used to store helper files
-  parallelLimit: 3,                  // (default: 5) Maximum parallel tasks to be run at the same time (warning: processes can consume a lot of memory!)
-  minWidth: 200,                     // See explanation about Size detection below
-  skipEmptyTiles: true,              // Skips all the empty tiles
-  bitdepth: 8,                       // (optional) See http://aheckmann.github.io/gm/docs.html#dither
-  dither: true,                      // (optional) See http://aheckmann.github.io/gm/docs.html#bitdepth
-  colors: 128,                       // (optional) See http://aheckmann.github.io/gm/docs.html#colors
-  gm: require('gm'),                 // (optional) Alternative way to specify the GraphicsMagic library
-  signal: new (require('abort-controller'))().signal // (optional) Signal to abort the map slicing process
+  file: `myImage.jpg`,               // (必填) 需要切片的大图片
+  output: `myImage/{z}/{y}/{x}.png`, // （默认值：从文件路径开始）输出文件模式
+  outputFolder: './output',          // （默认值：从文件路径开始）要用于的输出。使用output或outputFolder，二选一不要同时使用！
+  tileSize: 512,                     // （默认值：256）切片后的图片高宽像素大小
+  imageMagick: true,                 // （默认值：false）如果（true），则使用ImageMagick而不是GraphicsMagick
+  background: '#00000000',           // （默认值：'#FFFFFFF'）用于图块的背景颜色
+  tmp: './temp',                     // （默认值：'.tmp'）用于存储辅助文件的临时目录，就是个文件夹命名而已
+  parallelLimit: 3,                  // （默认值：5）同时运行的最大并行任务数（警告：进程可能会消耗大量内存！）
+  minWidth: 200,                     // 设置瓦片的宽度像素单位，建议和tileSize值一样，你也可以添加或使用minHeight
+  skipEmptyTiles: true,              // 跳过所有空瓦片
+  bitdepth: 8,                       // (选填) 图片位深度，默认8，当然也有16、24、32实际输出瓦片没有太大影响
+  dither: true,                      // (选填) dither抖动，建议改为false，输出的瓦片会有颗粒感，视觉上等于画质差
+  colors: 128,                       // (选填) 取决于输出每个瓦片的质量，数值越高处理越慢效果越好，一般需要使用ImageMagick命令获取原图的颜色数量而定
+  gm: require('gm'),                 // (选填) 指定GraphicsMagic库的替代方法
+  signal: new (require('abort-controller'))().signal // (选填) 中止地图切片过程的信号，就是会在命令窗口显示无法输出的瓦片信息
 })
 
 mapSlicer.on('start', (files, options) => console.info(`Starting to process ${files} files.`))
 mapSlicer.on('imageSize', (width, height) => console.info(`Image size: ${width}x${height}`))
-mapSlicer.on('levels', (levels) => { console.info(`Level Data: ${levels}`) }) // see TypeScript declaration for more details
+mapSlicer.on('levels', (levels) => { console.info(`Level Data: ${levels}`) })
 mapSlicer.on('warning', err => console.warn(err))
 mapSlicer.on('progress', (progress, total, current, path)  => console.info(`Progress: ${Math.round(progress*100)}%`))
 mapSlicer.on('end', () => console.info('Finished processing slices.') )
 mapSlicer.start().catch(err => console.error(err))
+```
+## colors获取&参数设置
 
-## Size detection and scaling
-
-To render the image in its fullest glory, mapslice assumes that you want to preserve the original image-quality and chooses input-size as its starting point from which the quality should be reduced. However: If you have a fixed-size map-user-interface then you might want the smallest image quality to fit this user-interface-design in order to assure that its is beautifully visible. To produce tiles that fit this needs you can use the "minWidth" or "minHeight" property which fits the map to have its lowest size matching exactly your required size:
+安装[ImageMagick](http://www.imagemagick.org/script/binary-releases.php)后运行以下命令，即可知道原图颜色数量
 
 ```console
-$ mapslice -f test.jpg -w=1000
+magick identify -format "%%k" map.png
 ```
 
-Will fit the smallest size to be exactly 1000 pixels wide and zoom up from there.
+通过（原图颜色数量 / 瓦片数量）*8 = colors应该设置的数值，但是也要根据自身电脑处理情况去设置，因为会很消耗CPU使用
+
+如果不想复杂计算颜色数量的话，建议设置2000~3000区间，输出的瓦片质量效果较好
 
 ### 注意
-
 
 为了提高性能，mapslice 将每个缩放级别的预缩放版本存储在临时文件夹中，然后从中裁剪。这些临时文件可能会变得非常大，因为它们以低压缩和高质量存储在 sgi 文件中。
 
