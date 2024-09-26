@@ -74,7 +74,7 @@ const MapSlicer = require('mapslice')
 
 // 此处传递的参数等于命令行参数
 const mapSlicer = new MapSlicer({
-  file: `myImage.jpg`,               // (必填) 需要切片的大图片，格式智齿png和jpg
+  file: `myImage.jpg`,               // （必填）需要切片的大图片，格式智齿png和jpg
   output: `myImage/{z}/{y}/{x}.png`, // （默认值：从文件路径开始）输出文件模式，输出的格式最好改为jpg，如果是png的话3.0.0版本输出会很占用CPU甚至电脑卡顿什么都做不了
   outputFolder: './output',          // （默认值：从文件路径开始）要用于的输出。使用output或outputFolder，二选一不要同时使用！
   tileSize: 512,                     // （默认值：256）切片后的图片高宽像素大小
