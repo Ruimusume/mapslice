@@ -14,6 +14,8 @@ mapslice会自动检测载入材料支持的图块大小，并创建所有可能
 
 ## 安装
 
+请先安装最新的 [node](http://nodejs.org/)后在运行命令
+
 cmd运行:
 
 ```bash
@@ -36,7 +38,7 @@ npm install mapslice@1.3.0
 
 ## 命令行
 
-安装最新的 [node](http://nodejs.org/), 后，您可以使用 mapslice 作为命令行工具，方法是使用以下命令进行安装：
+安装最新的 [node](http://nodejs.org/)后，您可以使用 mapslice 作为命令行工具，方法是使用以下命令进行安装：
 
 ```bash
 npm install mapslice -g
