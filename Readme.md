@@ -74,8 +74,8 @@ const MapSlicer = require('mapslice')
 
 // 此处传递的参数等于命令行参数
 const mapSlicer = new MapSlicer({
-  file: `myImage.jpg`,               // (必填) 需要切片的大图片
-  output: `myImage/{z}/{y}/{x}.png`, // （默认值：从文件路径开始）输出文件模式
+  file: `myImage.jpg`,               // (必填) 需要切片的大图片，格式智齿png和jpg
+  output: `myImage/{z}/{y}/{x}.png`, // （默认值：从文件路径开始）输出文件模式，输出的格式最好改为jpg，如果是png的话3.0.0版本输出会很占用CPU甚至电脑卡顿什么都做不了
   outputFolder: './output',          // （默认值：从文件路径开始）要用于的输出。使用output或outputFolder，二选一不要同时使用！
   tileSize: 512,                     // （默认值：256）切片后的图片高宽像素大小
   imageMagick: true,                 // （默认值：false）如果（true），则使用ImageMagick而不是GraphicsMagick
@@ -98,6 +98,12 @@ mapSlicer.on('warning', err => console.warn(err))
 mapSlicer.on('progress', (progress, total, current, path)  => console.info(`Progress: ${Math.round(progress*100)}%`))
 mapSlicer.on('end', () => console.info('Finished processing slices.') )
 mapSlicer.start().catch(err => console.error(err))
+```
+最终文件摆放实例
+```bash
+node_modules
+mapslice.js
+mapslice.bat
 ```
 ## colors获取&参数设置
 
