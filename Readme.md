@@ -96,10 +96,10 @@ mapSlicer.start().catch(err => console.error(err))
 ```
 ## colors获取&参数设置
 
-安装[ImageMagick](http://www.imagemagick.org/script/binary-releases.php)后运行以下命令，即可知道原图颜色数量
+安装[ImageMagick](http://www.imagemagick.org/script/binary-releases.php)后，在原图目录上运行以下命令，即可知道图片颜色数量
 
 ```console
-magick identify -format "%%k" map.png
+magick identify -format "%k" map.png
 ```
 
 通过（原图颜色数量 / 瓦片数量）*8 = colors应该设置的数值，但是也要根据自身电脑处理情况去设置，因为会很消耗CPU使用
