@@ -6,9 +6,9 @@
 
 mapslice是一种将图像切割成各种缩放级别的切片以用于交互式地图的工具。
 
-用于高性能查看巨大图像的Javascript工具有很多，但使用给定的工具裁剪和切片图像可能会很痛苦。
-mapslice会自动检测输入材料支持的图块大小，并创建所有可能的图块，供通用javascript地图工具使用
-例如 [polymaps](http://polymaps.org/), [kartograph](http://kartograph.org/) or [PanoJS](http://www.dimin.net/software/panojs/).
+有很多可用于高性能查看大图像的 Javascript 工具，但使用这些工具裁剪和切片图像可能会很麻烦。
+mapslice会自动检测载入材料支持的图块大小，并创建所有可能的图块，以供常见的 javascript 地图工具
+如 [polymaps](http://polymaps.org/), [kartograph](http://kartograph.org/) 或 [PanoJS](http://www.dimin.net/software/panojs/).
 
 ## 安装
 
