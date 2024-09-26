@@ -36,7 +36,7 @@ C:\Users\用户名\package-lock.json  //mapslice支持包下载的地址信息
 npm install mapslice@1.3.0
 ```
 
-## 命令行
+## 命令行（原文说明可以忽视）
 
 安装最新的 [node](http://nodejs.org/)后，您可以使用 mapslice 作为命令行工具，方法是使用以下命令进行安装：
 
