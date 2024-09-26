@@ -17,7 +17,7 @@ mapslice会自动检测载入材料支持的图块大小，并创建所有可能
 cmd运行:
 
 ```bash
-$ npm install mapslice
+npm install mapslice
 ```
 ## 安装的目录位置
 
@@ -31,7 +31,7 @@ C:\Users\用户名\package-lock.json  //mapslice支持包下载的地址信息
 
 请在@后面填入对应版本号，版本号查阅https://github.com/martinheidegger/mapslice/tags
 ```bash
-$ npm install mapslice@1.3.0
+npm install mapslice@1.3.0
 ```
 
 ## 命令行
@@ -39,7 +39,7 @@ $ npm install mapslice@1.3.0
 安装最新的 [node](http://nodejs.org/), 后，您可以使用 mapslice 作为命令行工具，方法是使用以下命令进行安装：
 
 ```console
-$ npm install mapslice -g
+npm install mapslice -g
 ```
 
 还请确保您已安装 [GraphicsMagick](http://www.graphicsmagick.org/README.html) 或 [ImageMagick](http://www.imagemagick.org/script/binary-releases.php) 并在命令行中可用！
