@@ -61,6 +61,8 @@ $ mapslice
 
 ## 脚本使用
 
+请复制以下代码保存js格式放在node_modules文件夹旁边使用
+
 ```JavaScript
 const MapSlicer = require('mapslice')
 
