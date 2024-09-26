@@ -33,7 +33,7 @@ C:\Users\用户名\package-lock.json //mapslice支持包下载的地址信息
 
 ## 下载旧版本
 
-请在@后面填入对应版本号，版本号查阅https://github.com/martinheidegger/mapslice/tags
+请在@后面填入对应版本号，版本号查阅 https://github.com/martinheidegger/mapslice/tags
 ```bash
 npm install mapslice@1.3.0
 ```
