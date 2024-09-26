@@ -83,9 +83,10 @@ $ mapslice -f test.jpg -w=1000
 
 Will fit the smallest size to be exactly 1000 pixels wide and zoom up from there.
 
-### Note
+### 注意
 
-To speed up performance mapslice stores a prescaled version of the each zoom-level in a temorary folder and then just crops off of that. These temporary files can become quite big as they are stored with low compression and high quality in sgi files.
+
+为了提高性能，mapslice 将每个缩放级别的预缩放版本存储在临时文件夹中，然后从中裁剪。这些临时文件可能会变得非常大，因为它们以低压缩和高质量存储在 sgi 文件中。
 
 ## License
 
