@@ -19,6 +19,11 @@ via npm:
 ```bash
 $ npm install mapslice
 ```
+## 下载旧版本
+请在@后面填入对应版本号，版本号查阅https://github.com/martinheidegger/mapslice/tags
+```bash
+$ npm install mapslice@1.3.0
+```
 
 ## 命令行
 
