@@ -1,14 +1,16 @@
-# mapslice - Image crop & slice tool
+# mapslice-图像裁剪和切片工具
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
-mapslice is a tool to cut images into slices of various zoom levels for use in interactive maps.
+源项目地址https://github.com/martinheidegger/mapslice
 
-Javascript tools for high-performant viewing of huge images are plenty available, yet cropping and slicing images can be a pain with the given tools.
-mapslice automatically detects which tile-sizes your input-material supports and creates all possible tiles to be used by a common javascript map tool
-like [polymaps](http://polymaps.org/), [kartograph](http://kartograph.org/) or [PanoJS](http://www.dimin.net/software/panojs/).
+mapslice是一种将图像切割成各种缩放级别的切片以用于交互式地图的工具。
 
-## Installation
+用于高性能查看巨大图像的Javascript工具有很多，但使用给定的工具裁剪和切片图像可能会很痛苦。
+mapslice会自动检测输入材料支持的图块大小，并创建所有可能的图块，供通用javascript地图工具使用
+例如 [polymaps](http://polymaps.org/), [kartograph](http://kartograph.org/) or [PanoJS](http://www.dimin.net/software/panojs/).
+
+## 安装
 
 via npm:
 
@@ -16,7 +18,7 @@ via npm:
 $ npm install mapslice
 ```
 
-## Command line
+## 命令
 
 After installing the latest [node](http://nodejs.org/), you can use mapslice as a command-line tool by installing it with:
 
@@ -39,7 +41,7 @@ $ mapslice
 ```
 
 
-## Script usage
+## 脚本使用
 
 ```JavaScript
 const MapSlicer = require('mapslice')
