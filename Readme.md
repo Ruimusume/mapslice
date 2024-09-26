@@ -2,7 +2,9 @@
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
-源项目地址https://github.com/martinheidegger/mapslice
+源项目地址：https://github.com/martinheidegger/mapslice
+
+以下为中文说明翻译
 
 mapslice是一种将图像切割成各种缩放级别的切片以用于交互式地图的工具。
 
