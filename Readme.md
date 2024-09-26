@@ -18,23 +18,23 @@ via npm:
 $ npm install mapslice
 ```
 
-## 命令
+## 命令行
 
-After installing the latest [node](http://nodejs.org/), you can use mapslice as a command-line tool by installing it with:
+安装最新的 [node](http://nodejs.org/), 后，您可以使用 mapslice 作为命令行工具，方法是使用以下命令进行安装：
 
 ```console
 $ npm install mapslice -g
 ```
 
-Also make sure that you have [GraphicsMagick](http://www.graphicsmagick.org/README.html) or [ImageMagick](http://www.imagemagick.org/script/binary-releases.php) installed and available in your command-line!
+还请确保您已安装 [GraphicsMagick](http://www.graphicsmagick.org/README.html) 或 [ImageMagick](http://www.imagemagick.org/script/binary-releases.php) 并在命令行中可用！
 
-Once the prerequisites are given, run mapslice using:
+满足以上条件后，使用以下命令运行mapslice：
 
 ```console
 $ mapslice -f test.jpg
 ```
 
-For more documentation run mapslice without arguments:
+要获取更多文档，请运行不带参数的 mapslice：
 
 ```console
 $ mapslice
