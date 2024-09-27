@@ -1,6 +1,6 @@
 # mapslice - 图像瓦片切图工具
 
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+![Github latest downloads](https://img.shields.io/github/downloads/Ruimusume/mapslice/total.svg) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
 源项目地址：https://github.com/martinheidegger/mapslice
 
